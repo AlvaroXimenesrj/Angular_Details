@@ -6,20 +6,40 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Components:
 import { NavBarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main/main.component';
-import { Repository } from '../repository/repository.model';
+import { Repository } from '../repository/repository';
 import { SimpleDataSource } from '../repository/datasource';
-import { ProductComponent } from '../others/ProductComponent';
+import { RepositoryMoq } from '../repository/repositoryMoq.model';
+import { SimpleDataSourceMoq } from '../repository/datasourceMoq.model';
 import { HomeComponent } from './home/home.component';
-import { TwoWayComponent } from '../others/two-way-databinding';
-import { FormComponent } from '../others/basedforms/form.component';
-import { AttributeComponent } from '../others/attribute-directives/attribute';
-import { PaAttrDirective } from '../others/attribute-directives/attr.directive';
-import { PaModel } from '../others/attribute-directives/twoway.directive';
-import { StructuralComponent } from '../others/structural-directives/structural';
-import { PaStructureDirective } from '../others/structural-directives/structure.directive';
-import { PaIteratorDirective } from '../others/structural-directives/iterator.directive';
-import { PaCellColor } from "../others/structural-directives/cellColor.directive";
-import { PaCellColorSwitcher } from "../others/structural-directives/cellColorSwitcher.directive";
+import { ProductComponent } from '../components/12DataBindings/component';
+import { ProductComponent13 } from '../components/13Built-in-Directives/component13';
+import { ProductComponent14 } from '../components/14Events-and-Forms/component14';
+import { ProductComponent14FV } from '../components/14Events-and-Forms/1FormValidation/component14FV';
+import { ProductComponent14FVa } from '../components/14Events-and-Forms/2FormModel/component14FVa';
+import { ProductComponent15 } from '../components/15AttributeDirectives/component15';
+import { PaAttrDirective } from '../components/15AttributeDirectives/attr.directive';
+import { PaModel } from '../components/15AttributeDirectives/twoway.directive';
+import { ProductComponent16 } from '../components/16StructuralDirectives/component16';
+import { PaStructureDirective } from '../components/16StructuralDirectives/structure.directive';
+import { PaIteratorDirective } from '../components/16StructuralDirectives/iterator.directive';
+import { PaCellColor } from '../components/16StructuralDirectives/cellColor.directive';
+import { PaCellColorSwitcher } from '../components/16StructuralDirectives/cellColorSwitcher.directive';
+import { ProductComponent17 } from '../components/17Components/component17';
+import { ProductTableComponent } from '../components/17Components/productTable.component';
+import { ProductFormComponent } from '../components/17Components/productForm.component';
+import { PaToggleView } from '../components/17Components/toggleView.component';
+import { ProductComponent18 } from '../components/18Pipes/component18';
+import { PaCellColor18 } from '../components/18Pipes/cellColor18.directive';
+import { ProductFormComponent18 } from '../components/18Pipes/productForm18.component';
+import { ProductTableComponent18 } from '../components/18Pipes/productTable18.component';
+import { PaAddTaxPipe } from '../components/18Pipes/addTax.pipe';
+import { PaCategoryFilterPipe } from '../components/18Pipes/categoryFilter.pipe';
+//import { PaAddTaxPipe } from '../components/18Pipes/addTax.pipe';
+//import { PaCellColor2 } from '../components/18Pipes/cellColor.directive';
+import { LOCALE_ID } from "@angular/core";
+import localeFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeFr);
 
 
 @NgModule({
@@ -28,41 +48,78 @@ import { PaCellColorSwitcher } from "../others/structural-directives/cellColorSw
         ReactiveFormsModule,
         RouterModule],
 
-    declarations: [NavBarComponent,
-        MainComponent,
-        ProductComponent,
-        HomeComponent,
-        TwoWayComponent,
-        FormComponent,
-        AttributeComponent,
-        StructuralComponent,
-        PaAttrDirective,
-        PaModel,
-        PaStructureDirective,
-        PaIteratorDirective,
-        PaCellColor,
-        PaCellColorSwitcher
-        //BasedFormComponent
+    declarations: 
+    //shared content
+    [NavBarComponent,
+     MainComponent,
+     HomeComponent,
+     // Othres Component:
+     ProductComponent,
+     ProductComponent13,
+     ProductComponent14,
+     ProductComponent14FV,
+     ProductComponent14FVa,
+     ProductComponent15,
+     ProductComponent16,
+     ProductComponent17,
+     ProductComponent18,
+     ProductTableComponent,
+     ProductFormComponent,
+     ProductFormComponent18,
+     ProductTableComponent18,
+     //directives
+     PaAttrDirective,
+     PaModel,
+     PaStructureDirective,
+     PaIteratorDirective,
+     PaCellColor,
+     PaCellColorSwitcher,
+     PaToggleView,
+     PaCellColor18,
+     PaAddTaxPipe,
+     PaCategoryFilterPipe
     ],
-    providers: [Repository, SimpleDataSource],
+    providers: [Repository, 
+        SimpleDataSource,
+        RepositoryMoq, 
+        SimpleDataSourceMoq
+        //{ provide: LOCALE_ID, useValue: "fr-FR" }
+    ],
 
-    exports: [MainComponent,
+    exports: [
+        // Meta:
+        FormsModule,
+        BrowserModule,
+        //shared compoentn
+        MainComponent,
         NavBarComponent,
+        HomeComponent,
+        //other Component
         ProductComponent,
-        TwoWayComponent,
-        FormComponent,
-        AttributeComponent,
-        StructuralComponent,
+        ProductComponent13,
+        ProductComponent14,
+        ProductComponent14FV,
+        ProductComponent14FVa,
+        ProductComponent15,
+        ProductComponent16,
+        ProductComponent17,
+        ProductComponent18,
+        ProductTableComponent,
+        ProductFormComponent,
+        ProductFormComponent18,
+        ProductTableComponent18,
+        //directives
         PaAttrDirective,
         PaModel,
         PaStructureDirective,
         PaIteratorDirective,
         PaCellColor,
         PaCellColorSwitcher,
-        // BasedFormComponent,
-        FormsModule,
-        BrowserModule,
-        HomeComponent],
+        PaToggleView,
+        PaCellColor18,
+        PaAddTaxPipe,
+        PaCategoryFilterPipe
+    ],
 
 })
 
