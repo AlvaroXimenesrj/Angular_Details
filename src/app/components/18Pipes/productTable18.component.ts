@@ -8,7 +8,7 @@ import { PaCellColor } from '../16StructuralDirectives/cellColor.directive';
     templateUrl: "productTable18.component.html"
 })
 
-export class ProductTableComponent18{
+export class ProductTableComponent18 {
     @Input("model")
     dataModel: RepositoryMoq;
 
@@ -23,4 +23,8 @@ export class ProductTableComponent18{
     deleteProduct(key: number) {
         this.dataModel.deleteProduct(key);
     }
+
+    dateObject: Date = new Date(2020, 1, 20);
+    dateString: string = "2020-02-20T00:00:00.000Z";
+    dateNumber: number = 1582156800000;
 }
