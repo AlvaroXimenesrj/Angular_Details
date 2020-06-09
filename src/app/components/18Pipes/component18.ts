@@ -10,7 +10,9 @@ import { Product, Teste } from 'src/app/model/product.model';
 
 export class ProductComponent18{
 
-    model: RepositoryMoq = new RepositoryMoq();
+    // model: RepositoryMoq = new RepositoryMoq();
+
+    constructor(private model: RepositoryMoq){ }
     
     addProduct(p: Product) {
         this.model.saveProduct(p);

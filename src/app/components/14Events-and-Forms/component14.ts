@@ -8,7 +8,9 @@ import { Product, Teste } from 'src/app/model/product.model';
     templateUrl: "template14.html"
 })
 export class ProductComponent14 {
-    model: RepositoryMoq = new RepositoryMoq();
+    //model: RepositoryMoq = new RepositoryMoq();
+
+    constructor(private model: RepositoryMoq){ }
 
     getProduct(key: number): Product {
         return this.model.getProduct(key);

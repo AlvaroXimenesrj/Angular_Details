@@ -1,14 +1,15 @@
+import { Injectable } from "@angular/core";
 import { Product } from '../model/product.model';
 import { SimpleDataSourceMoq } from './datasourceMoq.model';
 
-
+@Injectable()
 export class RepositoryMoq {
     // OBS: datasource.model.ts
-    private dataSource: SimpleDataSourceMoq;
+    //private dataSource: SimpleDataSourceMoq;
     private products: Product[];
     private locator = (p: Product, id: number) => p.id == id;
-    constructor() {
-        this.dataSource = new SimpleDataSourceMoq();
+    constructor(private dataSource: SimpleDataSourceMoq) {
+        //this.dataSource = new SimpleDataSourceMoq();
         this.products = new Array<Product>();
         this.dataSource.getData().forEach(p => this.products.push(p));
     }

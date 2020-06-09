@@ -11,7 +11,9 @@ import { ProductFormGroup } from '../14Events-and-Forms/2FormModel/form.model';
 
 export class ProductComponent16 {
 
-    model: RepositoryMoq = new RepositoryMoq();
+    // model: RepositoryMoq = new RepositoryMoq();
+
+    constructor(private model: RepositoryMoq){ }
 
     form: ProductFormGroup = new ProductFormGroup();
 

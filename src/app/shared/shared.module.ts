@@ -39,6 +39,15 @@ import { PaCategoryFilterPipe } from '../components/18Pipes/categoryFilter.pipe'
 import { LOCALE_ID } from "@angular/core";
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
+import { ProductComponent19 } from '../components/19Services/component19';
+import { ProductTableComponent19 } from '../components/19Services/productTable19.component';
+import { PaDiscountDisplayComponent } from '../components/19Services/discountDisplay.component';
+import { PaDiscountEditorComponent } from '../components/19Services/discountEditor.component';
+import { DiscountService } from '../components/19Services/discount.service';
+import { ProductFormComponent19 } from '../components/19Services/productForm19.component';
+import { PaDiscountPipe } from '../components/19Services/discount.pipe';
+import { PaDiscountAmountDirective } from '../components/19Services/discountAmount.directive';
+import { LogService, LOG_SERVICE, SpecialLogService } from '../components/20ServiceProvider/log.service';
 registerLocaleData(localeFr);
 
 
@@ -67,6 +76,12 @@ registerLocaleData(localeFr);
      ProductFormComponent,
      ProductFormComponent18,
      ProductTableComponent18,
+     ProductTableComponent19,
+     ProductComponent19,
+     PaDiscountDisplayComponent, 
+     PaDiscountEditorComponent,
+     ProductFormComponent19,
+     PaDiscountAmountDirective,
      //directives
      PaAttrDirective,
      PaModel,
@@ -77,12 +92,16 @@ registerLocaleData(localeFr);
      PaToggleView,
      PaCellColor18,
      PaAddTaxPipe,
-     PaCategoryFilterPipe
+     PaCategoryFilterPipe,
+     PaDiscountPipe
     ],
     providers: [Repository, 
         SimpleDataSource,
         RepositoryMoq, 
-        SimpleDataSourceMoq
+        SimpleDataSourceMoq,
+        DiscountService,
+        { provide: LOG_SERVICE, useClass: LogService, multi: true },
+        { provide: LOG_SERVICE, useClass: SpecialLogService, multi: true }
         //{ provide: LOCALE_ID, useValue: "fr-FR" }
     ],
 
@@ -108,6 +127,11 @@ registerLocaleData(localeFr);
         ProductFormComponent,
         ProductFormComponent18,
         ProductTableComponent18,
+        ProductComponent19,
+        ProductTableComponent19,
+        ProductFormComponent19,
+        PaDiscountDisplayComponent, 
+        PaDiscountEditorComponent,
         //directives
         PaAttrDirective,
         PaModel,
@@ -118,7 +142,9 @@ registerLocaleData(localeFr);
         PaToggleView,
         PaCellColor18,
         PaAddTaxPipe,
-        PaCategoryFilterPipe
+        PaCategoryFilterPipe,
+        PaDiscountPipe,
+        PaDiscountAmountDirective
     ],
 
 })

@@ -8,7 +8,9 @@ import { Product } from 'src/app/model/product.model';
     templateUrl: "template.html"
 })
 export class ProductComponent {
-    model: RepositoryMoq = new RepositoryMoq();
+    // model: RepositoryMoq = new RepositoryMoq();
+
+    constructor(private model: RepositoryMoq) { }
 
     getClasses(): string {
         return this.model.getProducts().length == 5 ? "bg-success" : "bg-warning";

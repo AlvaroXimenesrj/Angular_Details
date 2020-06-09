@@ -10,7 +10,10 @@ import { ProductFormGroup } from "./form.model";
     templateUrl: "template14FVa.html"
 })
 export class ProductComponent14FVa {
-    model: RepositoryMoq = new RepositoryMoq();
+    //model: RepositoryMoq = new RepositoryMoq();
+
+    constructor(private model: RepositoryMoq){ }
+
     form: ProductFormGroup = new ProductFormGroup();
 
     getProduct(key: number): Product {

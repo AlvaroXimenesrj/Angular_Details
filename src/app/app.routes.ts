@@ -10,6 +10,7 @@ import { ProductComponent15 } from './components/15AttributeDirectives/component
 import { ProductComponent16 } from './components/16StructuralDirectives/component16';
 import { ProductComponent17 } from './components/17Components/component17';
 import { ProductComponent18 } from './components/18Pipes/component18';
+import { ProductComponent19 } from './components/19Services/component19';
 //import { ProductComponent18 } from './components/18Pipes/component18';
 
 // Pense nos links que serão clicados, cada "clique" ou endereço
@@ -25,7 +26,8 @@ export const routes: Routes = [
   { path: 'AttributeDirective', component: ProductComponent15 },
   { path: 'structuralDirective', component: ProductComponent16 },
   { path: 'Components', component: ProductComponent17 },
-  { path: 'Pipes', component: ProductComponent18 }
+  { path: 'Pipes', component: ProductComponent18 },
+  { path: 'Services', component: ProductComponent19 }
 
   // { path: 'template/create', component: TemplateCreateComponent}
 ];

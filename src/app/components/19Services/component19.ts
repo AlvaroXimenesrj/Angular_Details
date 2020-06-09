@@ -5,14 +5,12 @@ import { Product, Teste } from 'src/app/model/product.model';
 
 @Component({
     selector: "app",
-    templateUrl: "template17.html"
-    //styles: ["/deep/ div { border: 2px black solid; font-style:italic }"]
+    templateUrl: "template19.html"
 })
 
-export class ProductComponent17 {
+export class ProductComponent19{
 
-    // model: RepositoryMoq = new RepositoryMoq();
-
+    //model: RepositoryMoq = new RepositoryMoq();
     constructor(private model: RepositoryMoq){ }
     
     addProduct(p: Product) {
