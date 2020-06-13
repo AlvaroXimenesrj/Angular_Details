@@ -6,11 +6,13 @@ import { LogService, LOG_SERVICE, LogLevel } from '../20ServiceProvider/log.serv
 export class DiscountService {
 
     private discountValue: number = 10;
-    private logger: LogService;
+    //private logger: LogService;
 
-    constructor(@Inject(LOG_SERVICE) loggers: LogService[]) {
-        this.logger = loggers.find(l => l.minimumLevel == LogLevel.DEBUG);
-    }
+    // constructor(@Inject(LOG_SERVICE) loggers: LogService[]) {
+    //     this.logger = loggers.find(l => l.minimumLevel == LogLevel.DEBUG);
+    // }
+
+    constructor(private logger: LogService) { }
 
 
     public get discount(): number {

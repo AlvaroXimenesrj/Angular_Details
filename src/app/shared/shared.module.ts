@@ -47,61 +47,89 @@ import { DiscountService } from '../components/19Services/discount.service';
 import { ProductFormComponent19 } from '../components/19Services/productForm19.component';
 import { PaDiscountPipe } from '../components/19Services/discount.pipe';
 import { PaDiscountAmountDirective } from '../components/19Services/discountAmount.directive';
-import { LogService, LOG_SERVICE, SpecialLogService } from '../components/20ServiceProvider/log.service';
+import { LogService, LOG_SERVICE, SpecialLogService, LogLevel, LOG_LEVEL } from '../components/20ServiceProvider/log.service';
+import { PaDisplayValueDirective, VALUE_SERVICE } from '../components/20ServiceProvider/valueDisplay.directive';
+import { StaticDataSource } from '../components/21Advanced/model/static.datasource';
+import { Model } from '../components/21Advanced/model/repository.model';
+import { TableComponent22 } from '../components/21Advanced/core/table.component';
+import { FormComponent22 } from '../components/21Advanced/core/form22.component';
+import { MessageModule } from '../components/21Advanced/messages/message.module';
+import { MessageComponent } from '../components/21Advanced/messages/message.component';
 registerLocaleData(localeFr);
+
+let logger = new LogService();
+logger.minimumLevel = LogLevel.DEBUG;
 
 
 @NgModule({
-    imports: [BrowserModule, 
+    imports: [BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule],
+        RouterModule,
+        MessageModule],
 
-    declarations: 
-    //shared content
-    [NavBarComponent,
-     MainComponent,
-     HomeComponent,
-     // Othres Component:
-     ProductComponent,
-     ProductComponent13,
-     ProductComponent14,
-     ProductComponent14FV,
-     ProductComponent14FVa,
-     ProductComponent15,
-     ProductComponent16,
-     ProductComponent17,
-     ProductComponent18,
-     ProductTableComponent,
-     ProductFormComponent,
-     ProductFormComponent18,
-     ProductTableComponent18,
-     ProductTableComponent19,
-     ProductComponent19,
-     PaDiscountDisplayComponent, 
-     PaDiscountEditorComponent,
-     ProductFormComponent19,
-     PaDiscountAmountDirective,
-     //directives
-     PaAttrDirective,
-     PaModel,
-     PaStructureDirective,
-     PaIteratorDirective,
-     PaCellColor,
-     PaCellColorSwitcher,
-     PaToggleView,
-     PaCellColor18,
-     PaAddTaxPipe,
-     PaCategoryFilterPipe,
-     PaDiscountPipe
-    ],
-    providers: [Repository, 
+    declarations:
+        //shared content
+        [NavBarComponent,
+            MainComponent,
+            HomeComponent,
+            // Othres Component:
+            ProductComponent,
+            ProductComponent13,
+            ProductComponent14,
+            ProductComponent14FV,
+            ProductComponent14FVa,
+            ProductComponent15,
+            ProductComponent16,
+            ProductComponent17,
+            ProductComponent18,
+            ProductTableComponent,
+            ProductFormComponent,
+            ProductFormComponent18,
+            FormComponent22,
+            ProductTableComponent18,
+            ProductTableComponent19,
+            TableComponent22,
+            ProductComponent19,
+            PaDiscountDisplayComponent,
+            PaDiscountEditorComponent,
+            ProductFormComponent19,
+            PaDiscountAmountDirective,
+            MessageComponent,
+            //directives
+            PaAttrDirective,
+            PaModel,
+            PaStructureDirective,
+            PaIteratorDirective,
+            PaCellColor,
+            PaCellColorSwitcher,
+            PaToggleView,
+            PaCellColor18,
+            PaAddTaxPipe,
+            PaCategoryFilterPipe,
+            PaDiscountPipe,
+            PaDisplayValueDirective
+        ],
+    providers: [Repository,
         SimpleDataSource,
-        RepositoryMoq, 
+        RepositoryMoq,
         SimpleDataSourceMoq,
         DiscountService,
-        { provide: LOG_SERVICE, useClass: LogService, multi: true },
-        { provide: LOG_SERVICE, useClass: SpecialLogService, multi: true }
+        Model,
+        StaticDataSource,
+        // { provide: LOG_LEVEL, useValue: LogLevel.ERROR },
+        // { provide: "debugLevel", useExisting: LOG_LEVEL },
+        // {
+        //     provide: LogService,
+        //     deps: ["debugLevel"],
+        //     useFactory: (level) => {
+        //         let logger = new LogService();
+        //         logger.minimumLevel = level;
+        //         return logger;
+        //     }
+        // }
+        LogService,
+        { provide: VALUE_SERVICE, useValue: "Apples" }
         //{ provide: LOCALE_ID, useValue: "fr-FR" }
     ],
 
@@ -130,8 +158,11 @@ registerLocaleData(localeFr);
         ProductComponent19,
         ProductTableComponent19,
         ProductFormComponent19,
-        PaDiscountDisplayComponent, 
+        FormComponent22,
+        TableComponent22,
+        PaDiscountDisplayComponent,
         PaDiscountEditorComponent,
+        MessageComponent,
         //directives
         PaAttrDirective,
         PaModel,
@@ -144,7 +175,8 @@ registerLocaleData(localeFr);
         PaAddTaxPipe,
         PaCategoryFilterPipe,
         PaDiscountPipe,
-        PaDiscountAmountDirective
+        PaDiscountAmountDirective,
+        PaDisplayValueDirective
     ],
 
 })

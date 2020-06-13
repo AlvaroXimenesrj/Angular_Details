@@ -3,10 +3,12 @@ import { RepositoryMoq } from 'src/app/repository/repositoryMoq.model';
 import { Product } from 'src/app/model/product.model';
 import { PaCellColor } from '../16StructuralDirectives/cellColor.directive';
 import { DiscountService } from './discount.service';
+import { LogService } from '../20ServiceProvider/log.service';
 
 @Component({
     selector: "paProductTable19",
-    templateUrl: "productTable19.component.html"
+    templateUrl: "productTable19.component.html",
+    providers:[LogService]
 })
 
 export class ProductTableComponent19{
